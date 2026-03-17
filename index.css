@@ -1,0 +1,179 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&family=Inter:wght@400;500;600&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    --background: 220 14% 96%;
+    --foreground: 222 20% 14%;
+    --card: 0 0% 100%;
+    --card-foreground: 222 20% 14%;
+    --popover: 0 0% 100%;
+    --popover-foreground: 222 20% 14%;
+    --primary: 346 72% 76%;
+    --primary-foreground: 222 20% 14%;
+    --secondary: 220 14% 92%;
+    --secondary-foreground: 222 20% 14%;
+    --muted: 220 14% 92%;
+    --muted-foreground: 220 9% 46%;
+    --accent: 346 72% 76%;
+    --accent-foreground: 222 20% 14%;
+    --destructive: 0 84.2% 60.2%;
+    --destructive-foreground: 0 0% 98%;
+    --border: 220 13% 88%;
+    --input: 220 13% 88%;
+    --ring: 346 72% 76%;
+    --radius: 0.625rem;
+    
+    --pink: #F2A0B5;
+    --pink-light: #FAD4DC;
+    --pink-dark: #E07A91;
+    --off-white: #F6F7F9;
+    --slate: #E9EDF3;
+    --text-primary: #1B1F2A;
+    --text-secondary: #6B7280;
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+  
+  html {
+    scroll-behavior: smooth;
+  }
+  
+  body {
+    @apply bg-[#F6F7F9] text-[#1B1F2A] antialiased;
+    font-family: 'Inter', sans-serif;
+  }
+  
+  h1, h2, h3, h4, h5, h6 {
+    font-family: 'Poppins', sans-serif;
+  }
+}
+
+@layer components {
+  .glass-card {
+    @apply bg-white/80 backdrop-blur-xl border border-white/60 rounded-[28px];
+    box-shadow: 0 18px 50px rgba(27, 31, 42, 0.10);
+  }
+  
+  .glass-card-sm {
+    @apply bg-white/75 backdrop-blur-lg border border-white/60 rounded-[18px];
+    box-shadow: 0 12px 36px rgba(27, 31, 42, 0.08);
+  }
+  
+  .btn-primary {
+    @apply bg-[#F2A0B5] text-white font-medium px-6 py-3 rounded-full transition-all duration-300;
+    box-shadow: 0 4px 16px rgba(242, 160, 181, 0.35);
+  }
+  
+  .btn-primary:hover {
+    @apply bg-[#E07A91] transform -translate-y-0.5;
+    box-shadow: 0 6px 24px rgba(242, 160, 181, 0.45);
+  }
+  
+  .btn-secondary {
+    @apply bg-white/80 text-[#1B1F2A] font-medium px-6 py-3 rounded-full border border-white/60 transition-all duration-300;
+    box-shadow: 0 4px 16px rgba(27, 31, 42, 0.06);
+  }
+  
+  .btn-secondary:hover {
+    @apply bg-white transform -translate-y-0.5;
+    box-shadow: 0 6px 24px rgba(27, 31, 42, 0.1);
+  }
+  
+  .section-padding {
+    @apply px-4 sm:px-6 lg:px-8 xl:px-12;
+  }
+  
+  .text-gradient {
+    @apply bg-gradient-to-r from-[#F2A0B5] to-[#E07A91] bg-clip-text text-transparent;
+  }
+}
+
+@layer utilities {
+  .animate-float {
+    animation: float 6s ease-in-out infinite;
+  }
+  
+  .animate-float-delayed {
+    animation: float 6s ease-in-out infinite;
+    animation-delay: -3s;
+  }
+  
+  .animate-fade-in {
+    animation: fadeIn 0.8s ease-out forwards;
+  }
+  
+  .animate-slide-up {
+    animation: slideUp 0.6s ease-out forwards;
+  }
+}
+
+@keyframes float {
+  0%, 100% {
+    transform: translateY(0px);
+  }
+  50% {
+    transform: translateY(-12px);
+  }
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+@keyframes slideUp {
+  from {
+    opacity: 0;
+    transform: translateY(24px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Plus pattern background */
+.plus-pattern {
+  background-image: url("data:image/svg+xml,%3Csvg width='40' height='40' viewBox='0 0 40 40' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='%23E2E6EE' fill-opacity='0.6' fill-rule='evenodd'%3E%3Cpath d='M20 0v40M0 20h40' stroke='%23E2E6EE' stroke-width='1'/%3E%3C/g%3E%3C/svg%3E");
+}
+
+/* Grain overlay */
+.grain-overlay::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noiseFilter'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noiseFilter)'/%3E%3C/svg%3E");
+  opacity: 0.03;
+  pointer-events: none;
+  mix-blend-mode: multiply;
+}
+
+/* Scrollbar styling */
+::-webkit-scrollbar {
+  width: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: #F6F7F9;
+}
+
+::-webkit-scrollbar-thumb {
+  background: #E2E6EE;
+  border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: #D1D5DB;
+}
